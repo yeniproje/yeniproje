@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammed Ali Akgül | Kişisel Web Sitesi</title>
+    <!-- Google Fonts: Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #F3ECD1;
+            --text-color: #1F345C;
+            --accent-color: #EF6B55;
+            --border-color: #000000;
+            --shadow-style: 6px 6px 0 #000000;
+            --shadow-hover: 8px 8px 0 #000000;
+            --shadow-active: 3px 3px 0 #000000;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            padding: 1.5rem;
+            min-height: 100vh;
+        }
+
+        /* Başlıklar */
+        h1, h2, h3, h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            color: var(--text-color);
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        /* Neo-brutalist Kutu Ortak Stili */
+        .brutal-box {
+            border: 3px solid var(--border-color);
+            box-shadow: var(--shadow-style);
+            background-color: #ffffff;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .brutal-box:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* Buton ve Bağlantı Stilleri */
+        .brutal-btn {
+            display: inline-block;
+            padding: 0.75rem 1.4rem;
+            background-color: var(--accent-color);
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            border: 3px solid var(--border-color);
+            box-shadow: var(--shadow-style);
+            cursor: pointer;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .brutal-btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .brutal-btn:active {
+            transform: translate(2px, 2px);
+            box-shadow: var(--shadow-active);
+        }
+
+        .brutal-btn.secondary {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        /* Rozet / Etiket */
+        .brutal-tag {
+            display: inline-block;
+            padding: 0.35rem 0.8rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            border: 3px solid var(--border-color);
+            box-shadow: 3px 3px 0 var(--border-color);
+            background-color: var(--accent-color);
+            color: #ffffff;
+            margin-bottom: 0.75rem;
+        }
+
+        .brutal-tag.alt {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        /* Sayfa Kapsayıcısı */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        /* Üst Menü / Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            background-color: #ffffff;
+        }
+
+        .site-logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 700;
+            padding: 0.4rem 0.8rem;
+            border: 3px solid var(--border-color);
+            box-shadow: 3px 3px 0 var(--border-color);
+            background-color: var(--bg-color);
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .nav-link:hover {
+            background-color: var(--accent-color);
+            color: #ffffff;
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0 var(--border-color);
+        }
+
+        /* Hero / Tanıtım Bölümü */
+        .hero-section {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 2rem;
+            align-items: stretch;
+        }
+
+        .hero-intro {
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: #ffffff;
+        }
+
+        .hero-title {
+            font-size: clamp(2.2rem, 5vw, 3.4rem);
+            margin-bottom: 1.2rem;
+        }
+
+        .hero-text {
+            font-size: 1.15rem;
+            margin-bottom: 2rem;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-visual {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .cover-wrapper {
+            position: relative;
+            height: 320px;
+            overflow: hidden;
+            background-color: var(--border-color);
+        }
+
+        .cover-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .mascot-card {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            padding: 1.2rem 1.5rem;
+            background-color: var(--bg-color);
+        }
+
+        .mascot-thumb {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border: 3px solid var(--border-color);
+            box-shadow: 3px 3px 0 var(--border-color);
+            flex-shrink: 0;
+        }
+
+        .mascot-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .mascot-info p {
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* Bölüm Başlığı Bloğu */
+        .section-header {
+            padding: 1.5rem 2rem;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+        }
+
+        /* İlgi Alanları Kartları */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .interest-card {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            background-color: #ffffff;
+        }
+
+        .card-img-box {
+            width: 100%;
+            height: 240px;
+            border-bottom: 3px solid var(--border-color);
+            overflow: hidden;
+            background-color: #e5dac0;
+        }
+
+        .card-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .interest-card:hover .card-img-box img {
+            transform: scale(1.04);
+        }
+
+        .card-body {
+            padding: 1.75rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-body h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .card-body p {
+            font-size: 1rem;
+            color: var(--text-color);
+            font-weight: 500;
+            line-height: 1.55;
+        }
+
+        /* Hakkımda Detay Bölümü */
+        .about-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .about-box {
+            padding: 2.2rem;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .about-box h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-box p {
+            font-size: 1.05rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .about-highlight {
+            padding: 2rem;
+            background-color: var(--accent-color);
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .about-highlight h3 {
+            color: #ffffff;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-highlight p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        /* İletişim & Alt Bilgi */
+        .footer-box {
+            padding: 2.5rem 2rem;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 1.5rem;
+        }
+
+        .footer-title {
+            font-size: 1.8rem;
+        }
+
+        .footer-text {
+            max-width: 600px;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .footer-contact {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .footer-bottom {
+            padding-top: 1.5rem;
+            border-top: 3px solid var(--border-color);
+            width: 100%;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-color);
+        }
+
+        /* Telefon ve Tablet Uyumluluğu */
+        @media (max-width: 900px) {
+            .hero-section {
+                grid-template-columns: 1fr;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-section {
+                grid-template-columns: 1fr;
+            }
+
+            .card-img-box {
+                height: 280px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem;
+            }
+
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero-intro {
+                padding: 1.5rem;
+            }
+
+            .cover-wrapper {
+                height: 240px;
+            }
+
+            .mascot-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .section-header {
+                padding: 1.2rem;
+            }
+
+            .about-box, .about-highlight {
+                padding: 1.5rem;
+            }
+
+            .brutal-box {
+                box-shadow: 4px 4px 0 #000000;
+            }
+
+            .brutal-btn {
+                box-shadow: 4px 4px 0 #000000;
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* Hareketi Azaltmayı Seçen Kullanıcılar (prefers-reduced-motion: reduce) */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation: none !important;
+                transition: none !important;
+                transform: none !important;
+                scroll-behavior: auto !important;
+            }
+
+            .brutal-box:hover,
+            .brutal-btn:hover,
+            .brutal-btn:active,
+            .nav-link:hover,
+            .interest-card:hover .card-img-box img {
+                transform: none !important;
+                box-shadow: var(--shadow-style) !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- Üst Menü -->
+        <header>
+            <nav class="navbar brutal-box">
+                <a href="#giris" class="site-logo">Muhammed Ali Akgül</a>
+                <ul class="nav-links">
+                    <li><a href="#giris" class="nav-link">Giriş</a></li>
+                    <li><a href="#ilgi-alanlari" class="nav-link">İlgi Alanları</a></li>
+                    <li><a href="#hakkimda" class="nav-link">Hakkımda</a></li>
+                    <li><a href="#iletisim" class="nav-link">İletişim</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Giriş / Hero Bölümü -->
+        <main>
+            <section id="giris" class="hero-section">
+                <div class="hero-intro brutal-box">
+                    <span class="brutal-tag">Kişisel Web Sitesi</span>
+                    <h1 class="hero-title">Muhammed Ali Akgül</h1>
+                    <p class="hero-text">
+                        Kişisel web alanıma hoş geldiniz. Bu sitede ilgi duyduğum alanları, çalışma tutkumu ve yaşam felsefemi paylaşıyorum.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#ilgi-alanlari" class="brutal-btn">İlgi Alanlarını İncele</a>
+                        <a href="#iletisim" class="brutal-btn secondary">İletişime Geç</a>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="cover-wrapper brutal-box">
+                        <img src="resimler/kapak.jpg" alt="Kapak görseli" class="cover-img">
+                    </div>
+                    <div class="mascot-card brutal-box">
+                        <img src="resimler/maskot.jpg" alt="Kedi maskot" class="mascot-thumb">
+                        <div class="mascot-info">
+                            <span class="brutal-tag alt">Maskot</span>
+                            <h3>Kedi Dostumuz</h3>
+                            <p>Sitemizin daimi neşesi ve rehberi.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- İlgi Alanları Bölümü -->
+        <section id="ilgi-alanlari">
+            <div class="section-header brutal-box" style="margin-bottom: 2rem;">
+                <div>
+                    <span class="brutal-tag">Neler Yapıyorum?</span>
+                    <h2>İlgi Alanlarım</h2>
+                </div>
+                <p style="font-weight: 500; max-width: 420px;">
+                    Hayata renk katan, enerjimi tazeleyen ve beni daima motive eden üç temel uğraş.
+                </p>
+            </div>
+
+            <div class="cards-grid">
+                <!-- Kart 1: Müzik -->
+                <article class="interest-card brutal-box">
+                    <div class="card-img-box">
+                        <img src="resimler/kart-1.jpg" alt="Müzik görseli">
+                    </div>
+                    <div class="card-body">
+                        <span class="brutal-tag">1. Alan</span>
+                        <h3>Müzik</h3>
+                        <p>
+                            Farklı tınıları dinlemek, enstrüman sesleriyle dinlenmek ve müziğin ritminde yeni fikirler üretmek günlük hayatımın ayrılmaz bir parçasıdır.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Kart 2: Spor -->
+                <article class="interest-card brutal-box">
+                    <div class="card-img-box">
+                        <img src="resimler/kart-2.jpg" alt="Spor görseli">
+                    </div>
+                    <div class="card-body">
+                        <span class="brutal-tag">2. Alan</span>
+                        <h3>Spor</h3>
+                        <p>
+                            Düzenli hareket etmek, fiziksel direnci korumak ve dinamik bir zihin yapısını sürdürmek için spora hayatımda daima öncelik veririm.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Kart 3: Yemek -->
+                <article class="interest-card brutal-box">
+                    <div class="card-img-box">
+                        <img src="resimler/kart-3.jpg" alt="Yemek görseli">
+                    </div>
+                    <div class="card-body">
+                        <span class="brutal-tag">3. Alan</span>
+                        <h3>Yemek</h3>
+                        <p>
+                            Yeni lezzetleri keşfetmek, mutfakta özenle yemek hazırlamak ve zengin tatları sevdiklerimle paylaşmak en keyifli anlarımdan biridir.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Hakkımda Bölümü -->
+        <section id="hakkimda" class="about-section">
+            <div class="about-box brutal-box">
+                <span class="brutal-tag">Hakkımda</span>
+                <h2>Sade, Net ve Amaca Yönelik</h2>
+                <p>
+                    Ben Muhammed Ali Akgül. Teknolojiyi, üretkenliği ve tasarımı sade bir bakış açısıyla harmanlayarak değer üretmeyi seviyorum.
+                </p>
+                <p>
+                    Hayatta karmaşıklıktan uzak, güçlü ve net çözümler üretmeyi ilke edindim.
+                </p>
+            </div>
+            <div class="about-highlight brutal-box">
+                <span class="brutal-tag alt" style="border-color: #000000; align-self: flex-start;">Felsefem</span>
+                <h3>Odaklan ve Üret</h3>
+                <p>
+                    Zamanı verimli kullanmak, tutkuyla bağlandığım ilgi alanlarında derinleşmek ve her gün bir önceki günden daha iyisini ortaya koymak temel motivasyonumdur.
+                </p>
+            </div>
+        </section>
+
+        <!-- İletişim ve Alt Bilgi -->
+        <footer id="iletisim" class="footer-box brutal-box">
+            <span class="brutal-tag">İletişim</span>
+            <h2 class="footer-title">Birlikte Yeni Fikirler Geliştirelim</h2>
+            <p class="footer-text">
+                Projeler, iş birlikleri veya ilgi alanlarım üzerine konuşmak isterseniz bana her zaman ulaşabilirsiniz.
+            </p>
+            <div class="footer-contact">
+                <a href="mailto:iletisim@muhammedaliakgul.com" class="brutal-btn">E-Posta Gönder</a>
+                <a href="#giris" class="brutal-btn secondary">Başa Dön</a>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Muhammed Ali Akgül. Tüm hakları saklıdır.</p>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammed Ali Akgül | Kişisel Web Sitesi</title>
+    <!-- Sekme Simgesi (Favicon): Maskot Görseli -->
+    <link rel="icon" type="image/jpeg" href="resimler/maskot.jpg">
+    <!-- Google Fonts: Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <!-- GSAP 3 ve ScrollTrigger (jsDelivr CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <!-- Harici Stil Dosyası -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Sabit Üst Menü -->
+    <div class="navbar-wrapper">
+        <nav class="navbar" aria-label="Ana Gezinti">
+            <a href="#kapak" class="site-logo">Muhammed Ali Akgül</a>
+            <ul class="nav-links">
+                <li><a href="#kapak" class="nav-link">Kapak</a></li>
+                <li><a href="#hakkimda" class="nav-link">Hakkımda</a></li>
+                <li><a href="#ilgi-alanlarim" class="nav-link">İlgi Alanlarım</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- 1. Bölüm: 400vh Yüksekliğinde Kaydırmaya Bağlı Video Giriş Bölümü -->
+    <header id="kapak" class="hero-scroll-section">
+        <div class="hero-sticky-container">
+            <!-- Video Bileşeni (object-fit: cover ile tam kaplama) -->
+            <video id="hero-video" class="hero-video" src="videolar/video.mp4" poster="resimler/kapak.jpg" muted playsinline preload="auto"></video>
+            <!-- prefers-reduced-motion için yalnızca kapak görseli -->
+            <img src="resimler/kapak.jpg" alt="Kapak görseli" class="hero-reduced-cover">
+            
+            <!-- Video Üzerindeki 3 Sıralı Neo-brutalist Yazı -->
+            <div class="hero-overlay-content">
+                <!-- 1. Yazı: İsim -->
+                <div class="hero-step hero-step-1 brutal-box">
+                    <span class="brutal-tag">Kişisel Web Sitesi</span>
+                    <h1 class="hero-title">Muhammed Ali Akgül</h1>
+                </div>
+                <!-- 2. Yazı: Tanıtım -->
+                <div class="hero-step hero-step-2 brutal-box">
+                    <span class="brutal-tag alt">Vizyon</span>
+                    <p class="hero-desc">Teknoloji, tasarım ve üretkenliği buluşturan kişisel alanım.</p>
+                </div>
+                <!-- 3. Yazı: Kapanış / Keşif çağrısı -->
+                <div class="hero-step hero-step-3 brutal-box">
+                    <span class="brutal-tag">Keşfet</span>
+                    <p class="hero-desc">Aşağı kaydırarak dünyamı keşfedin.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sayfa İçerik Kapsayıcısı -->
+    <div class="container">
+        <main>
+            <!-- 2. Bölüm: Hakkımda -->
+            <section id="hakkimda" class="about-section">
+                <div class="about-card brutal-box">
+                    <div class="mascot-frame">
+                        <img src="resimler/maskot.jpg" alt="Muhammed Ali Akgül'ün sevimli kedi maskotu" class="mascot-img">
+                    </div>
+                    <div class="about-info">
+                        <span class="brutal-tag">Ben Kimim?</span>
+                        <h2 class="about-title">Hakkımda</h2>
+                        <p class="about-text">
+                            Hayatımın merkezinde yer alan müzik ve spor, bana hem yüksek bir enerji hem de zihinsel bir zindelik kazandırıyor. Her işimde dakik ve üretken olmayı ilke edinerek zamanı en verimli şekilde değerlendirmeye odaklanıyorum. Meraklı yapım sayesinde yeni şeyler öğrenmekten ve kendimi sürekli geliştirmekten büyük bir keyif alıyorum.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. Bölüm: İlgi Alanlarım (Üç Kart) -->
+            <section id="ilgi-alanlarim" class="interests-section">
+                <div class="section-head brutal-box">
+                    <div>
+                        <span class="brutal-tag">Tutkularım</span>
+                        <h2>İlgi Alanlarım</h2>
+                    </div>
+                    <p style="font-weight: 500; max-width: 450px;">
+                        Günlük yaşamıma ilham veren, zihnimi tazeleyen ve beni motive eden temel uğraşlarım.
+                    </p>
+                </div>
+
+                <div class="interests-grid">
+                    <!-- Kart 1: Müzik -->
+                    <article class="interest-card brutal-box">
+                        <div class="card-img-wrapper">
+                            <img src="resimler/kart-1.jpg" alt="Gitar çalan ve şarkı söyleyen sevimli karakter müzik illüstrasyonu" class="card-img">
+                        </div>
+                        <div class="card-content">
+                            <span class="brutal-tag">1. Alan</span>
+                            <h3 class="card-title">Müzik</h3>
+                            <p class="card-desc">
+                                Farklı enstrümanların ahengini hissetmek, yeni melodiler keşfetmek ve müziğin enerjisiyle dinlenmek benim için vazgeçilmez bir tutkudur.
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- Kart 2: Spor -->
+                    <article class="interest-card brutal-box">
+                        <div class="card-img-wrapper">
+                            <img src="resimler/kart-2.jpg" alt="Spor araba, amfitiyatro ve aktif yaşam temalı çöl sahnesi" class="card-img">
+                        </div>
+                        <div class="card-content">
+                            <span class="brutal-tag">2. Alan</span>
+                            <h3 class="card-title">Spor</h3>
+                            <p class="card-desc">
+                                Hareket halinde olmak, fiziksel dayanıklılığı artırmak ve zinde kalmak hem zihinsel odaklanmamı hem de yaşam kalitemi yüksek tutar.
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- Kart 3: Yemek -->
+                    <article class="interest-card brutal-box">
+                        <div class="card-img-wrapper">
+                            <img src="resimler/kart-3.jpg" alt="Keyifli ve lezzetli yemek kültürünü simgeleyen sevimli karakter" class="card-img">
+                        </div>
+                        <div class="card-content">
+                            <span class="brutal-tag">3. Alan</span>
+                            <h3 class="card-title">Yemek</h3>
+                            <p class="card-desc">
+                                Farklı mutfak kültürlerini tanımak, özgün lezzetler keşfetmek ve sofraları keyifli sohbetlerle paylaşmak en büyük zevklerimdendir.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+        <!-- Alt Bilgi Notu ve Telif -->
+        <footer class="footer-wrapper">
+            <div class="footer-card brutal-box">
+                <p class="ai-notice">Bu sitedeki görseller yapay zekâ ile üretildi.</p>
+                <p class="footer-copy">© 2026 Muhammed Ali Akgül. Tüm hakları saklıdır.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Harici Komut Dosyası -->
+    <script src="script.js"></script>
+</body>
+</html>
